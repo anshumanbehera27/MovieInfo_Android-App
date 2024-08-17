@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MovieMatrix"
+rootProject.name = "MovieInfo"
 include(":app")
