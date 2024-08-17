@@ -1,4 +1,4 @@
-package com.anshuman.myapplication.Activitys
+package com.anshuman.myapplication.Activities
 
 import android.content.Intent
 import android.os.Bundle

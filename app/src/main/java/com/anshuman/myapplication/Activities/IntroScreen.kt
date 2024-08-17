@@ -1,13 +1,9 @@
-package com.anshuman.myapplication.Activitys
+package com.anshuman.myapplication.Activities
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.anshuman.myapplication.MainActivity
-import com.anshuman.myapplication.R
 import com.anshuman.myapplication.databinding.ActivityIntroScreenBinding
 
 class IntroScreen : AppCompatActivity() {
@@ -19,7 +15,7 @@ class IntroScreen : AppCompatActivity() {
         setContentView(binding.root)
         // By clicking this it will reDrict to the  LoginPage
         binding.btngetstrated.setOnClickListener{
-            val  intent = Intent(this , MainActivity::class.java)
+            val  intent = Intent(this , loginActivity::class.java)
             startActivity(intent)
         }
 
