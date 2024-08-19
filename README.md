@@ -1,13 +1,13 @@
 # MovieInfo
 
-![MovieInfo Logo](path_to_logo_image)
+![MovieInfo Logo](images/logo.png)
 
 ## Overview
 MovieInfo is your one-stop app to explore, discover, and stay updated on all things movies. Whether you're looking for details about the latest blockbusters, upcoming releases, or trending films, MovieInfo has you covered. The app also lets you watch trailers, save favorite movies, and manage your profile, all in one place.
 ---
 ## Workflow
 
-![App Workflow](path_to_workflow_image)
+![App Workflow](images/workflow.png)
 
 ## Features
 
@@ -71,43 +71,27 @@ MovieInfo is your one-stop app to explore, discover, and stay updated on all thi
 --- 
 ## Video Demo
 
-[![MovieInfo Video Demo](path_to_video_thumbnail)](https://www.youtube.com/watch?v=your_video_id)
+[![MovieInfo Video Demo](images/Appthumlin.jpg)](https://youtu.be/BSdMb3pwEVU)
 
 
-## Screenshots and Videos
-
-### Home Screen
-![Home Screen](path_to_home_screen_image)
-
-### Movie Details
-![Movie Details](path_to_movie_details_image)
-
-### Watch Trailer
-![Watch Trailer](path_to_watch_trailer_image)
-
-### Favorites
-![Favorites](path_to_favorites_image)
-
-### Profile Page
-![Profile Page](path_to_profile_page_image)
-
+---
 ### Video Demo
 [![MovieInfo Video Demo](path_to_video_thumbnail)](path_to_video_demo)
 
 ---
 ## 📷 App Features
 
-|      <img src="images/SplashScreen.png" alt="SplashScreen" width="220" height="420">       | <img src="images/introScreen.png" alt="introScreen" width="220" height="420"> |    <img src="images/loginPage.png" alt="Login Page" width="220" height="420">    |
-|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|:-------------------------------------------------------------------:|
-|                                  SplashScreen                                  |                                       introScreen.png                                        |                             Login Page                              |
+|      <img src="images/SplashScreen.png" alt="SplashScreen" width="220" height="420">       |  <img src="images/introScreen.png" alt="introScreen" width="220" height="420">  |    <img src="images/loginPage.png" alt="Login Page" width="220" height="420">    |
+|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------:|
+|                                  SplashScreen                                  | introScreen.png                                                                 |                             Login Page                              |
 
-| <img src="images/signUpPage.png" alt="Sign Up Page" width="220" height="420"> | <img src="images/homepage.png" alt="Home Page" width="220" height="420"> | <img src="viewDeatils.png" alt="view Deatils" width="220" height="420"> |
-|:-----------------------------------------------------------------------------:|:------------------------------------------------------------------------:|:-----------------------------------------------------------------------:|
-|                                 Sign Up Page                                  |                                Home Page                                 |                              view Deatils                               |
+| <img src="images/signUpPage.png" alt="Sign Up Page" width="220" height="420">               | <img src="images/homepage.png" alt="Home Page" width="220" height="420">      | <img src="viewDeatils.png" alt="view Deatils" width="220" height="420">           |
+|:-------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
+|                                        Sign Up Page                                         |                                   Home Page                                   |                                   view Deatils                                    |
 
-| <img src="images/searchview.png" alt="Information Section" width="220" height="420"> | <img src="images/fav_page.png" alt="Information Details" width="220" height="420"> | <img src="images/profilePahe.png" alt="Profile Section" width="220" height="420"> |
-|:------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------:|
-|                                     Search View                                      |                                   Favorite page                                    |                                   Profile Page                                    |
+| <img src="images/searchview.png" alt="Information Section" width="220" height="420">       | <img src="images/fav_page.png" alt="Information Details" width="220" height="420"> | <img src="images/profilePahe.png" alt="Profile Section" width="220" height="420">   |
+|:------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+|                                        Search View                                         |                                   Favorite page                                    |                                    Profile Page                                     |
 ---
 ## Installation
 
