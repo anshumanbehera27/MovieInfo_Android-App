@@ -52,7 +52,6 @@ class AllMovieActivity : AppCompatActivity() {
             }
         })
     }
-
     private fun fetchAndDisplayMovies() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
