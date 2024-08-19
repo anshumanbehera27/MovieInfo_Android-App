@@ -13,5 +13,6 @@ data class Film(
     var Imdb: Int = 0,
     var Year: Int = 0,
     var Genre: ArrayList<String> = arrayListOf(),
-    var Casts: ArrayList<Cast> = arrayListOf()
+    var Casts: ArrayList<Cast> = arrayListOf(),
+    var isFavorite: Boolean = false
 ) : Serializable
