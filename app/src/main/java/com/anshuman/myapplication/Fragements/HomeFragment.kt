@@ -1,6 +1,7 @@
 package com.anshuman.myapplication.Fragments
 
 import FilmListAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.anshuman.myapplication.Activities.AllMovieActivity
 import com.anshuman.myapplication.Adapters.SlidersAdapter
 import com.anshuman.myapplication.Models.Film
 import com.anshuman.myapplication.Models.SliderItems
@@ -35,6 +37,21 @@ class HomeFragment : Fragment() {
         initBanner()
         initUpcoming()
         initTopMovies()
+
+        binding.tvseeAllOne.setOnClickListener{
+            Log.d("HomeFragment", "See all one clicked")
+            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
+
+        }
+        binding.tvseeAllTwo.setOnClickListener{
+            Log.d("HomeFragment", "See all two clicked")
+            startActivity(Intent(requireContext() , AllMovieActivity::class.java))
+        }
+        binding.editTextsearch.setOnClickListener {
+            Log.d("HomeFragment", "See all one clicked")
+            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
+        }
+
 
         return binding.root
     }
