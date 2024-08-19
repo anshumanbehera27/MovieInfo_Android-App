@@ -99,7 +99,7 @@ MovieInfo is your one-stop app to explore, discover, and stay updated on all thi
    - Open your terminal or command prompt.
    - Run the following command to clone the project:
      ```bash
-     git clone https://github.com/yourusername/MovieInfo.git
+     git clone https://github.com/anshumanbehera27/MovieInfo_Android-App.git
      ```
 
 2. **Open in Android Studio**:
