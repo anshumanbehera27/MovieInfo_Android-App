@@ -1,6 +1,6 @@
 # MovieInfo
 
-![MovieInfo Logo](images/logo.png)
+![MovieInfo Logo](images/Appthumlin.jpg)
 
 ## Overview
 MovieInfo is your one-stop app to explore, discover, and stay updated on all things movies. Whether you're looking for details about the latest blockbusters, upcoming releases, or trending films, MovieInfo has you covered. The app also lets you watch trailers, save favorite movies, and manage your profile, all in one place.
@@ -72,10 +72,10 @@ MovieInfo is your one-stop app to explore, discover, and stay updated on all thi
 ## Video Demo
 
 <a href ="https://youtu.be/BSdMb3pwEVU" target="_blank">
-  <img src="https://img.youtube.com/vi/BSdMb3pwEVU/0.jpg" alt="MovieInfo Video Demo" width="300" />
+  <img src="https://img.youtube.com/vi/BSdMb3pwEVU/0.jpg" alt="MovieInfo Video Demo" height = "200" width="300" />
 </a>
 
-[![MovieInfo Video Demo](images/Appthumlin.jpg)](https://youtu.be/BSdMb3pwEVU)
+
 
 
 
