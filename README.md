@@ -71,12 +71,14 @@ MovieInfo is your one-stop app to explore, discover, and stay updated on all thi
 --- 
 ## Video Demo
 
+<a href ="https://youtu.be/BSdMb3pwEVU" target="_blank">
+  <img src="https://img.youtube.com/vi/BSdMb3pwEVU/0.jpg" alt="MovieInfo Video Demo" width="300" />
+</a>
+
 [![MovieInfo Video Demo](images/Appthumlin.jpg)](https://youtu.be/BSdMb3pwEVU)
 
 
----
-### Video Demo
-[![MovieInfo Video Demo](path_to_video_thumbnail)](path_to_video_demo)
+
 
 ---
 ## 📷 App Features
