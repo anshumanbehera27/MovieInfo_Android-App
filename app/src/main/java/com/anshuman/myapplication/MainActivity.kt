@@ -4,8 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.anshuman.myapplication.Fragements.Fav_listFragment
-import com.anshuman.myapplication.Fragements.HomeFragment
+
 import com.anshuman.myapplication.Fragements.ProfileFragment
+import com.anshuman.myapplication.Fragments.HomeFragment
 import com.anshuman.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
