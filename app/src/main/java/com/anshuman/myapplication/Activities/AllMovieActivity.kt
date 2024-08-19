@@ -1,22 +1,22 @@
 package com.anshuman.myapplication.Activities
-import android.os.Bundle
 
+import AllmovieAdapter
+import android.os.Bundle
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.anshuman.myapplication.Adapters.AllmovieAdapter
 import com.anshuman.myapplication.Models.Film
-
 import com.anshuman.myapplication.databinding.ActivityAllMovieBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class AllMovieActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityAllMovieBinding
     private lateinit var database: FirebaseDatabase
     private lateinit var myRefUpcoming: DatabaseReference
@@ -30,11 +30,11 @@ class AllMovieActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         database = FirebaseDatabase.getInstance()
-        myRefUpcoming = database.getReference("Upcomming")
+        myRefUpcoming = database.getReference("Upcoming") // Correct the reference name if needed
         myRefTopMovies = database.getReference("Items")
 
         binding.allmovierecycleview.layoutManager = LinearLayoutManager(this)
-        allmovieAdapter = AllmovieAdapter(allMovies)
+        allmovieAdapter = AllmovieAdapter(allMovies, this) // Pass the context here
         binding.allmovierecycleview.adapter = allmovieAdapter
 
         fetchAndDisplayMovies()
@@ -42,13 +42,11 @@ class AllMovieActivity : AppCompatActivity() {
         // Setup search functionality
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                // Perform search when the query is submitted
                 allmovieAdapter.filter.filter(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Filter movies as the user types
                 allmovieAdapter.filter.filter(newText)
                 return true
             }
