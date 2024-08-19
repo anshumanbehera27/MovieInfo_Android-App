@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    kotlin("kapt")
+
 }
 
 android {
@@ -76,6 +78,12 @@ dependencies {
 
     // Glide is use to convert the one url to image
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.15.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+    implementation ("com.squareup.okhttp3:okhttp:3.14.0")
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.14.2") {
+        exclude(group = "com.github.bumptech.glide", module = "glide-parent") // Exclude glide-parent group to avoid conflicts
+    }
 
     // retrofit dependency
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
@@ -87,6 +95,11 @@ dependencies {
 
     // firebase
     implementation ("com.google.firebase:firebase-bom:33.1.2")
+
+    // Kotline Coroutins
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
 
 
 
