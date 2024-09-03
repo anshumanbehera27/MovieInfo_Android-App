@@ -62,9 +62,11 @@ class Fav_listFragment : Fragment() {
                     film?.let { favoriteFilms.add(it) }
                 }
 
-                // Setup RecyclerView
-                recyclerViewFav.layoutManager = LinearLayoutManager(context)
-                recyclerViewFav.adapter = AllmovieAdapter(favoriteFilms, requireContext())
+                // Setup RecyclerView if the context is not null
+                context?.let { ctx ->
+                    recyclerViewFav.layoutManager = LinearLayoutManager(ctx)
+                    recyclerViewFav.adapter = AllmovieAdapter(favoriteFilms, ctx)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

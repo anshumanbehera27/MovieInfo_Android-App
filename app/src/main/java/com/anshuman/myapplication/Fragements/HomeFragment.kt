@@ -33,10 +33,16 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         database = FirebaseDatabase.getInstance()
-
+        /**
+         * Call All the Mthods One by one
+         */
         initBanner()
         initUpcoming()
         initTopMovies()
+
+        /**
+         * this below code is use for Achive From Deatils movie Activity
+         */
 
         binding.tvseeAllOne.setOnClickListener{
             Log.d("HomeFragment", "See all one clicked")
