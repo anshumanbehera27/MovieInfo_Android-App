@@ -22,6 +22,7 @@ class Fav_listFragment : Fragment() {
     private val favoritesRef = database.getReference("favorites")
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var recyclerViewFav: RecyclerView
+    private lateinit var valueEventListener: ValueEventListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +55,8 @@ class Fav_listFragment : Fragment() {
     }
 
     private fun fetchFavoriteMovies() {
-        favoritesRef.addValueEventListener(object : ValueEventListener {
+        // Define the Firebase event listener
+        valueEventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val favoriteFilms = mutableListOf<Film>()
                 for (child in snapshot.children) {
@@ -62,16 +64,28 @@ class Fav_listFragment : Fragment() {
                     film?.let { favoriteFilms.add(it) }
                 }
 
-                // Setup RecyclerView if the context is not null
-                context?.let { ctx ->
-                    recyclerViewFav.layoutManager = LinearLayoutManager(ctx)
-                    recyclerViewFav.adapter = AllmovieAdapter(favoriteFilms, ctx)
+                // Ensure the fragment is still attached before using context
+                if (isAdded) {
+                    recyclerViewFav.layoutManager = LinearLayoutManager(requireContext())
+                    recyclerViewFav.adapter = AllmovieAdapter(favoriteFilms, requireContext())
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(context, "Error fetching data: ${error.message}", Toast.LENGTH_LONG).show()
+                if (isAdded) {
+                    Toast.makeText(requireContext(), "Error fetching data: ${error.message}", Toast.LENGTH_LONG).show()
+                }
             }
-        })
+        }
+
+        // Attach the listener
+        favoritesRef.addValueEventListener(valueEventListener)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Remove Firebase listener when fragment's view is destroyed
+        favoritesRef.removeEventListener(valueEventListener)
     }
 }

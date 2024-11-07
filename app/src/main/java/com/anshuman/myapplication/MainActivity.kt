@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
           todo 4 - define the defult fragement
         */
         val bottomNavigationView = binding.bottomNavigation
-
         // load defult home one
         replaceFragment(HomeFragment())
 
@@ -31,7 +30,6 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.home -> {
                     replaceFragment(HomeFragment())
-
                     true
                 }
                 R.id.favorites -> {

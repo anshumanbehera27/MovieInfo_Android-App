@@ -6,39 +6,55 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.anshuman.myapplication.MainActivity
 import com.anshuman.myapplication.databinding.ActivityLoginBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class loginActivity : AppCompatActivity() {
-lateinit var binding: ActivityLoginBinding
+    lateinit var binding: ActivityLoginBinding
+    lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Reset error messages
+
+        // Initialize Firebase Auth
+        auth = FirebaseAuth.getInstance()
+
+        // Clear any error messages on startup
         binding.etuser.error = null
         binding.etPassword.error = null
-        // it will reditect to the main page
-        // if it will alrady have an accout then we need to move to the home page
-        binding.btnlogin.setOnClickListener{
-            val usename = binding.etuser.text.toString()
-            val password = binding.etPassword.text.toString()
-            if (usename.isEmpty() ==true ){
-              binding.etuser.setError("enter username")
-            }
-            else if (password.isEmpty() == true){
-                binding.etPassword.setError("enter password")
-            }
-            else{
-            val intent = Intent(this , MainActivity::class.java)
-            startActivity(intent)
-                Toast.makeText(this , "login successfully" , Toast.LENGTH_SHORT).show()
+
+        // Set up click listener for login button
+        binding.btnlogin.setOnClickListener {
+            val email = binding.etuser.text.toString().trim() // Updated variable name for clarity
+            val password = binding.etPassword.text.toString().trim()
+
+            // Validate fields
+            when {
+                email.isEmpty() -> binding.etuser.error = "Please enter email"
+                password.isEmpty() -> binding.etPassword.error = "Please enter password"
+                else -> {
+                    // Attempt to sign in with Firebase
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                // Sign-in successful; navigate to MainActivity
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                            } else {
+                                // Sign-in failed; display error message
+                                Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            }
+                        }
+                }
             }
         }
-        // it will redrict to the Singup activity
-        binding.tvregister.setOnClickListener{
-            val intent = Intent(this , signupActivity::class.java)
+
+        // Redirect to SignupActivity when clicking "Register" TextView
+        binding.tvregister.setOnClickListener {
+            val intent = Intent(this, signupActivity::class.java)
             startActivity(intent)
         }
-
-
     }
 }

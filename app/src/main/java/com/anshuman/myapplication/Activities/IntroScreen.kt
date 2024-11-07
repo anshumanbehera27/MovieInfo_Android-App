@@ -18,6 +18,5 @@ class IntroScreen : AppCompatActivity() {
             val  intent = Intent(this , loginActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

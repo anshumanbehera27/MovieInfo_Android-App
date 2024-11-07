@@ -33,33 +33,31 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         database = FirebaseDatabase.getInstance()
-        /**
-         * Call All the Mthods One by one
-         */
+
+        // Initialize all sections
         initBanner()
         initUpcoming()
         initTopMovies()
 
-        /**
-         * this below code is use for Achive From Deatils movie Activity
-         */
-
-        binding.tvseeAllOne.setOnClickListener{
-            Log.d("HomeFragment", "See all one clicked")
-            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
-
-        }
-        binding.tvseeAllTwo.setOnClickListener{
-            Log.d("HomeFragment", "See all two clicked")
-            startActivity(Intent(requireContext() , AllMovieActivity::class.java))
-        }
-        binding.editTextsearch.setOnClickListener {
-            Log.d("HomeFragment", "See all one clicked")
-            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
-        }
-
+        // Set up click listeners for navigation
+        setupClickListeners()
 
         return binding.root
+    }
+
+    private fun setupClickListeners() {
+        binding.tvseeAllOne.setOnClickListener {
+            Log.d("HomeFragment", "See all one clicked")
+            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
+        }
+        binding.tvseeAllTwo.setOnClickListener {
+            Log.d("HomeFragment", "See all two clicked")
+            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
+        }
+        binding.editTextsearch.setOnClickListener {
+            Log.d("HomeFragment", "Search clicked")
+            startActivity(Intent(requireContext(), AllMovieActivity::class.java))
+        }
     }
 
     private fun initBanner() {
@@ -106,7 +104,7 @@ class HomeFragment : Fragment() {
             binding.viewPager2.setCurrentItem(0)
 
             viewLifecycleOwner.lifecycleScope.launch {
-                while (true) {
+                while (isAdded) { // Ensure fragment is added
                     delay(2000)
                     binding.viewPager2.currentItem = (binding.viewPager2.currentItem + 1) % (binding.viewPager2.adapter?.itemCount ?: 1)
                 }
@@ -126,8 +124,7 @@ class HomeFragment : Fragment() {
                 val snapshot = myRef.get().await()
                 if (snapshot.exists()) {
                     for (issue in snapshot.children) {
-                        val movie = issue.getValue(Film::class.java)
-                        movie?.let { items.add(it) }
+                        issue.getValue(Film::class.java)?.let { items.add(it) }
                     }
                     if (items.isNotEmpty()) {
                         binding.recyclerViewUpcoming.layoutManager = LinearLayoutManager(
@@ -162,8 +159,7 @@ class HomeFragment : Fragment() {
                 val snapshot = myRef.get().await()
                 if (snapshot.exists()) {
                     for (issue in snapshot.children) {
-                        val movie = issue.getValue(Film::class.java)
-                        movie?.let { items.add(it) }
+                        issue.getValue(Film::class.java)?.let { items.add(it) }
                     }
                     if (items.isNotEmpty()) {
                         binding.recyclerViewTopMovies.layoutManager = LinearLayoutManager(
